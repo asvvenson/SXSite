@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./examples.css">
+
+</head>
+<body>
+
+<link rel="stylesheet" href="../../assets/css/normalize.css" type="text/css">
+<link rel="stylesheet" href="../../assets/css/style.css" type="text/css">
+<link rel="stylesheet" href="../../assets/css/examples.css" type="text/css">
+
+	<section class="demo">
+		<div class="spacer s2"></div>
+		<div id="gsap-trigger" class="spacer s0"></div>
+		<div id="gsap-anim" style="opacity: 0.5">
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(senseNav)">Sense Strand</button>
+            </div>
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(antisenseNav)">Antisense Strand</button>
+            </div>
+		</div>
+
+	</section>
+    
+    
+	<section class="RISC">
+		<div class="spacer s2"></div>
+		<div id="RISCtrigger" class="spacer s0"></div>
+		<div id="RISCanim" style="opacity: 0.5">
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(senseNav)">RISC</button>
+            </div>
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(antisenseNav)">mRNA</button>
+            </div>
+		</div>
+
+	</section>
+    
+    <div id="Sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h1 id="SidenavTitle">Antisense Strand  </h1>             
+
+        <p id="SidenavP">The antisense (guide) strand is complementary to the target mRNA sequence. RISC uses the antisense strand to locate and bind the target mRNA sequence. (Cheng et al., 2003)</p>
+        <img id ="SidenavImage" src="smiley.gif" alt="Smiley face" width="100%"> 
+        VISUAL: show RISC and guide strand binding to mRNA 
+        
+        <a id ="SidenavLink" href="#">Source</a>
+    </div>
+
+    <div id="antisenseNav" class="sidenav">
+    </div>
+    <div id="senseNav" class="sidenav">
+    </div>
+
+</body>
+</html>

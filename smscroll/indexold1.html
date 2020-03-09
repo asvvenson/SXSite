@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./examples.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
+
+<link rel="stylesheet" href="../../assets/css/normalize.css" type="text/css">
+<link rel="stylesheet" href="../../assets/css/style.css" type="text/css">
+<link rel="stylesheet" href="../../assets/css/examples.css" type="text/css">
+
+    
+<script>
+    var controller = new ScrollMagic.Controller();
+</script>
+
+
+<video id="video" src="http://aswens3.people.uic.edu/UglyPass.mp4">
+</video>
+		<div class="spacer s2"></div>
+
+<div id="long">
+
+<div class="spacer s2"></div>
+<div class="spacer s2"></div>
+<div class="spacer s2"></div>
+<div id="trigger1" class="spacer s0"></div>
+<div id="reveal1" class="box2 black">
+    <!-- Optional Content Button. How do I input a string into this function so I can search by a different ID for each openNav function? -->
+    <button id="myBtn" onclick="openNav(antisensenav)">Antisense Strand</button>
+</div>
+<div class="spacer s2"></div>
+<div class="spacer s2"></div>
+    
+<script>
+		// build scene
+		new ScrollMagic.Scene({
+							triggerElement: "#trigger1",
+							triggerHook: 0.3, // show, when scrolled 10% into view
+							duration: "50%", // hide 10% before exiting view (80% + 10% from bottom)
+							//offset: 50 // move trigger to center of element
+						})			.setClassToggle("#reveal1", "visible") // add class to reveal
+						.addIndicators() // add indicators (requires plugin)
+						.addTo(controller);
+</script>
+<script>
+		// build scene
+		new ScrollMagic.Scene({
+							triggerElement: "#trigger1",
+							triggerHook: 0.5, // show, when scrolled 10% into view
+							duration: "90%", // hide 10% before exiting view (80% + 10% from bottom)
+							//offset: 50 // move trigger to center of element
+						})
+						.setPin("#reveal1")		
+						.addIndicators() // add indicators (requires plugin)
+						.addTo(controller);
+</script>
+    
+	<section class="demo">
+		<div class="spacer s2"></div>
+		<div id="gsap-trigger" class="spacer s0"></div>
+		<div id="gsap-anim" style="opacity: 0.5">
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(senseNav)">Sense Strand</button>
+            </div>
+            <div class="box2 black">
+                <button id="myBtn" onclick="openNav(antisenseNav)">Antisense Strand</button>
+            </div>
+		</div>
+
+		<script>
+				// build scene
+  				// build Tween
+				var fadein = new TimelineMax()
+					.from("#gsap-anim", 1, {scale: 0.8, opacity: 0.1})
+					.to("#gsap-anim", 3, {scale: 1, opacity: 1})          
+				new ScrollMagic.Scene({
+									triggerElement: "#gsap-trigger",
+									triggerHook: 0.4, // show, when scrolled 10% into view
+									duration: "20%", // use full viewport
+								})
+								.setTween(fadein)
+								.addIndicators({name: "GSAP"}) // add indicators (requires plugin)
+								.addTo(controller);
+				new ScrollMagic.Scene({
+									triggerElement: "#gsap-trigger",
+									triggerHook: 0.5, // show, when scrolled 10% into view
+									duration: "100%", // use full viewport
+									offset: 50 // move trigger to center of element
+								})
+                                .setPin("#gsap-anim")
+								.addIndicators({name: "GSAP"}) // add indicators (requires plugin)
+								.addTo(controller);
+				var fadeout = new TimelineMax()
+					.to("#gsap-anim", 1, {scale: 0.9, opacity: 0.1}, ">")
+                new ScrollMagic.Scene({
+									triggerElement: "#gsap-trigger",
+									triggerHook: -2, // show, when scrolled 10% into view
+									duration: "20%", // use full viewport
+								})
+								.setTween(fadeout)
+								.addIndicators({name: "GSAP"}) // add indicators (requires plugin)
+								.addTo(controller);
+		</script>
+
+	</section>
+    
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+           <h1 id="mySidenavTitle">Antisense Strand  </h1>             
+
+        <p id="mySidenavP">The antisense (guide) strand is complementary to the target mRNA sequence. RISC uses the antisense strand to locate and bind the target mRNA sequence. (Cheng et al., 2003)</p>
+        VISUAL: show RISC and guide strand binding to mRNA 
+        <a href="#">Source</a>
+    </div>
+
+    <div id="antisenseNav" class="sidenav">
+    </div>
+    <div id="senseNav" class="sidenav">
+    </div>
+
+</div>
+
+<script>
+    
+</script>
+    <!-- partial -->
+  <script  src="./script.js"></script>
+
+
+    
+</body>
+</html>
